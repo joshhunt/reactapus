@@ -2,9 +2,9 @@
 import path from 'path';
 import Express from 'express';
 import sstatic from 'serve-static';
-import config from './config';
+import config from '../config';
 
-import mainServerRoute from './serverRoute';
+import mainServerRoute from './mainRoute';
 
 // Create a really basic Express server
 const app = new Express();

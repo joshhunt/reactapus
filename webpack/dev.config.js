@@ -1,10 +1,13 @@
+/* eslint-disable */
+
 var path = require('path');
 var webpack = require('webpack');
 var writeStats = require('./utils/writeStats');
 var notifyStats = require('./utils/notifyStats');
 var opts = require('./utils/makeLoaders');
-var assetsPath = path.resolve(__dirname, '../static/dist');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var assetsPath = path.resolve(__dirname, '../static/dist');
 var host = 'localhost';
 var port = parseInt(process.env.PORT) + 1 || 4001;
 
@@ -15,7 +18,7 @@ module.exports = {
     'main': [
       'webpack-dev-server/client?http://' + host + ':' + port,
       'webpack/hot/only-dev-server',
-      './src/client.js'
+      './src/client/index.js'
     ]
   },
   output: {

@@ -2,7 +2,7 @@ import {
   SHOW_LOAD,
   SHOW_LOAD_SUCCESS,
   SHOW_LOAD_FAIL
-} from '../actions/actionTypes';
+} from 'app/actions/actionTypes';
 
 const initialState = {
   loaded: false

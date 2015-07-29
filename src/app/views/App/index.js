@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {createTransitionHook} from 'universalRouter';
-import Navbar from 'components/Navbar';
+import {createTransitionHook} from 'app/universalRouter';
+import Navbar from 'app/components/Navbar';
 
 if (__CLIENT__) require('./styles.scss');
 

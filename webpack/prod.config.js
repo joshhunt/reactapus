@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Webpack config for creating the production bundle.
 // TODO: use utils/makeLoaders here like in the dev config
 
@@ -13,7 +15,7 @@ module.exports = {
   devtool: 'source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
-    'main': './src/client.js'
+    'main': './src/client/index.js'
   },
   output: {
     path: assetsPath,

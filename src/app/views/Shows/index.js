@@ -2,9 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {isLoaded} from '../../reducers/shows';
-import * as showActions from '../../actions/showActions';
-import Show from 'components/Show';
+import {isLoaded} from 'app/reducers/shows';
+import * as showActions from 'app/actions/showActions';
+import Show from 'app/components/Show';
 
 if (__CLIENT__) {
   require('./styles.scss');

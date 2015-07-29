@@ -20,7 +20,7 @@ Uses just webpack to bundle and run.
 
 ## Caveats
 
-My understanding of React and Redux (and Flux) as very basic at the moment, 
+My understanding of React and Redux (and Flux) as very basic at the moment,
 so this code probably doesnt represent all best practices.
 
-I also think the folder structure could make more sense as well, especially around the `client.js`/`server.js`/`serverRoute.js` parts
+I also think there's opportunities for the folder structure to be reconsidered.

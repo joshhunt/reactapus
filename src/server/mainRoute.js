@@ -2,15 +2,15 @@ import React from 'react';
 import Location from 'react-router/lib/Location';
 import serialize from 'serialize-javascript';
 
-import createStore from './redux/create';
-import ApiClient from './ApiClient';
-import universalRouter from './universalRouter';
+import createStore from 'app/redux/create';
+import ApiClient from 'app/ApiClient';
+import universalRouter from 'app/universalRouter';
 
 let webpackStats;
 
 // Get the webpack stats (for production) to get URLs for the assets
 if (!__DEVELOPMENT__) {
-  webpackStats = require('../webpack-stats.json');
+  webpackStats = require('../../webpack-stats.json');
 }
 
 const renderLayout = ({viewComponent, store}) => {
@@ -41,19 +41,13 @@ const renderLayout = ({viewComponent, store}) => {
   );
 };
 
-const sendError = (err, res) => {
-  console.error(err);
-  res.status(500).send('<pre>' + err.stack + '</pre>');
-};
-
-
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
 
   if (__DEVELOPMENT__) {
     // Require a fresh webpack-stats for each request since the script files
     // change for live reaload/hot module replacement
-    webpackStats = require('../webpack-stats.json');
-    delete require.cache[require.resolve('../webpack-stats.json')];
+    webpackStats = require('../../webpack-stats.json');
+    delete require.cache[require.resolve('../../webpack-stats.json')];
   }
 
   const apiClient = new ApiClient(req);
@@ -73,9 +67,9 @@ module.exports = (req, res) => {
         const page = renderLayout({webpackStats, store, viewComponent});
         res.send(page);
       } catch (err) {
-        sendError(err, res);
+        next(err);
       }
     }, (err) => {
-      sendError(err, res);
+      next(err);
     });
 };
